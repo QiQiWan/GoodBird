@@ -1,0 +1,11 @@
+G:\study\C#实验\初期\好机友\GoodBird\bin\Debug\netcoreapp2.2\GoodBird.deps.json
+G:\study\C#实验\初期\好机友\GoodBird\bin\Debug\netcoreapp2.2\GoodBird.runtimeconfig.json
+G:\study\C#实验\初期\好机友\GoodBird\bin\Debug\netcoreapp2.2\GoodBird.runtimeconfig.dev.json
+G:\study\C#实验\初期\好机友\GoodBird\bin\Debug\netcoreapp2.2\GoodBird.dll
+G:\study\C#实验\初期\好机友\GoodBird\bin\Debug\netcoreapp2.2\GoodBird.pdb
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.csprojAssemblyReference.cache
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.csproj.CoreCompileInputs.cache
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.AssemblyInfoInputs.cache
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.AssemblyInfo.cs
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.dll
+G:\study\C#实验\初期\好机友\GoodBird\obj\Debug\netcoreapp2.2\GoodBird.pdb
