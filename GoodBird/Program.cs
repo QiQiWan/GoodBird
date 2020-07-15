@@ -8,6 +8,7 @@ namespace GoodBird
         static void Main(string[] args)
         {
             server.Start();
+            Console.ReadLine();
         }
     }
 }
