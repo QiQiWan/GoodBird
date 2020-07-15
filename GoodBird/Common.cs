@@ -27,7 +27,7 @@ namespace GoodBird
         /// <value></value>
         public static SendPeriod[] SendPeriods = new SendPeriod[]{
             new SendPeriod(22, "img/night/", "Good Night!"),
-            new SendPeriod(7, "img/night/", "Good Morning!")
+            new SendPeriod(7, "img/morning/", "Good Morning!")
         };
 
         /// <summary>
