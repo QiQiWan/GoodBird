@@ -68,7 +68,7 @@ namespace GoodBird
             {
                 if (Common.SendPeriods[i].ConfirmTime())
                 {
-                    SendImg(Common.SendPeriods[i].ImgDic, Common.SendPeriods[i].Message);
+                    SendImg(Common.SendPeriods[i]);
                 }
             }
         }
@@ -77,10 +77,14 @@ namespace GoodBird
         /// 发送咕咕机小纸条
         /// </summary>
         /// <param name="imgPath"></param>
-        private void SendImg(string imgPath, string message)
+        public void SendImg(SendPeriod period)
         {
+            string imgPath = period.ImgDic, message = period.Message;
             string[] fileList = FileHelper.GetFileList(imgPath);
             string filePath = imgPath + fileList[new Random().Next(fileList.Length)];
+
+            Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
+
             string base64 = ImageHelper.ImageToBase64(filePath);
             string grayBase64 = GetGrayBase64Pic(base64);
 
@@ -102,7 +106,9 @@ namespace GoodBird
 
                 PrintPaperHttp.SetQueries(queries);
                 string result = PrintPaperHttp.HttpPost();
-                Console.WriteLine(result);
+
+                Loger.Log($"发送结果:{result}");
+
             }
         }
         /// <summary>

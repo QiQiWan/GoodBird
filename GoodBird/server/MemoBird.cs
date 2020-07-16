@@ -51,6 +51,9 @@ namespace GoodBird
             this.Message = message;
             Time = new CycleTime(hour);
         }
+        public string ToTimeString(){
+            return Time.ToString();
+        }
         public int RefreshTime() => Time.RefreshTime();
         public bool ConfirmTime() => Time.ComfirmTime();
     }
@@ -77,7 +80,11 @@ namespace GoodBird
         /// <returns></returns>
         public int RefreshTime(){
             this.Minute = new Random().Next(0, 59);
+            Loger.Log($"时间已刷新至{ToString()}");
             return Minute;
+        }
+        public override string ToString() {
+            return Hour + ":" + Minute;
         }
         /// <summary>
         /// 确认当前时间是否到指定时间

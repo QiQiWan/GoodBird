@@ -8,7 +8,7 @@ namespace GoodBird
         /// <summary>
         /// 在数组中添加新的咕咕机设备编号和你设备所绑定的咕咕号
         /// 添加格式: new MemoBirdInfo("456as4f5sa4f5a4s5f6", "1234567")
-        /// 第一个字符串参数为咕咕机吐出的设备编号,第二个字符串参数为咕咕机绑定的咕咕号
+        /// 第一个字符串参数为咕咕机吐出的设备编号,第二个字符串参数为开放平台所填写的咕咕号
         /// 同时发送多个咕咕机使用半角逗号分隔
         /// </summary>
         /// <value></value>
@@ -27,7 +27,7 @@ namespace GoodBird
         /// <value></value>
         public static SendPeriod[] SendPeriods = new SendPeriod[]{
             new SendPeriod(22, "img/night/", "Good Night!"),
-            new SendPeriod(7, "img/morning/", "Good Morning!")
+            new SendPeriod(8, "img/morning/", "Good Morning!")
         };
 
         /// <summary>

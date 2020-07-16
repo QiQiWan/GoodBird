@@ -11,7 +11,7 @@ namespace GoodBird
         /// <summary>
         /// 线程锁
         /// </summary>
-        private static object Lock;
+        private static object Lock = new object();
         private static FileStream fileStream;
         private static StreamReader streamReader;
         private static StreamWriter streamWriter;
