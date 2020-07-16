@@ -38,20 +38,36 @@ namespace GoodBird
         /// 需要一起发送的文字
         /// </summary>
         public readonly string Message;
+        public SendPeriod(int hour, int minute, string imgDic)
+        {
+            this.Hour = hour;
+            this.ImgDic = imgDic;
+            this.Message = "";
+            Time = new CycleTime(hour, minute);
+        }
         public SendPeriod(int hour, string imgDic)
         {
             this.Hour = hour;
             this.ImgDic = imgDic;
-            this.Message = null;
+            this.Message = "";
             Time = new CycleTime(hour);
         }
-        public SendPeriod(int hour, string imgDic, string message){
+        public SendPeriod(int hour, int minute, string imgDic, string message)
+        {
+            this.Hour = hour;
+            this.ImgDic = imgDic;
+            this.Message = message;
+            Time = new CycleTime(hour, minute);
+        }
+        public SendPeriod(int hour, string imgDic, string message)
+        {
             this.Hour = hour;
             this.ImgDic = imgDic;
             this.Message = message;
             Time = new CycleTime(hour);
         }
-        public string ToTimeString(){
+        public string ToTimeString()
+        {
             return Time.ToString();
         }
         public int RefreshTime() => Time.RefreshTime();
@@ -62,15 +78,18 @@ namespace GoodBird
     /// </summary>
     public class CycleTime
     {
+        private readonly bool Fixed;
         public readonly int Hour;
         public int Minute;
         public CycleTime(int hour)
         {
+            Fixed = false;
             this.Hour = hour;
             RefreshTime();
         }
         public CycleTime(int hour, int mimute)
         {
+            Fixed = true;
             this.Hour = hour;
             this.Minute = mimute;
         }
@@ -78,12 +97,15 @@ namespace GoodBird
         /// 刷新预定计划的发送时间
         /// </summary>
         /// <returns></returns>
-        public int RefreshTime(){
-            this.Minute = new Random().Next(0, 59);
+        public int RefreshTime()
+        {
+            if (!Fixed)
+                this.Minute = new Random().Next(0, 59);
             Loger.Log($"时间已刷新至{ToString()}");
             return Minute;
         }
-        public override string ToString() {
+        public override string ToString()
+        {
             return Hour + ":" + Minute;
         }
         /// <summary>
