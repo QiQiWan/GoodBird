@@ -1,0 +1,10 @@
+7/17/20 7:00:00 AM [info] 正在准备发送图片img/morning/img/morning/下载.png, 在时间7:0
+7/17/20 7:00:06 AM [info] 正在准备发送图片img/morning/img/morning/bread2.jpg, 在时间7:0
+7/17/20 7:00:12 AM [info] 正在准备发送图片img/morning/img/morning/bread.jpg, 在时间7:0
+7/17/20 7:00:18 AM [info] 正在准备发送图片img/morning/img/morning/bread.jpg, 在时间7:0
+7/17/20 7:00:24 AM [info] 正在准备发送图片img/morning/img/morning/下载.png, 在时间7:0
+7/17/20 7:00:30 AM [info] 正在准备发送图片img/morning/img/morning/下载.png, 在时间7:0
+7/17/20 7:00:36 AM [info] 正在准备发送图片img/morning/img/morning/下载.png, 在时间7:0
+7/17/20 7:00:42 AM [info] 正在准备发送图片img/morning/img/morning/bread.jpg, 在时间7:0
+7/17/20 7:00:48 AM [info] 正在准备发送图片img/morning/img/morning/bread.jpg, 在时间7:0
+7/17/20 7:00:54 AM [info] 正在准备发送图片img/morning/img/morning/bread2.jpg, 在时间7:0

@@ -797,30 +797,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\WQW\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/root/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\study\\C#实验\\初期\\好机友\\GoodBird\\GoodBird.csproj",
+      "projectUniqueName": "/root/GoodBird/GoodBird/GoodBird/GoodBird.csproj",
       "projectName": "GoodBird",
-      "projectPath": "G:\\study\\C#实验\\初期\\好机友\\GoodBird\\GoodBird.csproj",
-      "packagesPath": "C:\\Users\\WQW\\.nuget\\packages\\",
-      "outputPath": "G:\\study\\C#实验\\初期\\好机友\\GoodBird\\obj\\",
+      "projectPath": "/root/GoodBird/GoodBird/GoodBird/GoodBird.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/root/GoodBird/GoodBird/GoodBird/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\WQW\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
