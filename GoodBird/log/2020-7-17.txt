@@ -12,3 +12,6 @@
 2020/7/17 7:36:57 [info] 正在准备发送图片img/morning/img/morning/bread.jpg, 在时间7:36
 2020/7/17 7:36:58 [info] 发送结果:{"showapi_res_code":1,"showapi_res_error":"ok","result":2,"smartGuid":"0fe007937340679f","printcontentid":46024651}
 2020/7/17 7:36:59 [info] 发送结果:{"showapi_res_code":1,"showapi_res_error":"ok","result":1,"smartGuid":"e37135d80b302f1c","printcontentid":46024652}
+2020/7/17 7:56:46 [info] 时间已刷新至22:5
+2020/7/17 7:56:46 [info] 时间已刷新至7:58
+2020/7/17 7:56:46 [info] 服务器已启动...

@@ -34,6 +34,11 @@ namespace GoodBird
         /// </summary>
         public void Start()
         {
+
+            HttpHelper helper = new HttpHelper("https://eatrice.top");
+
+            Console.WriteLine(helper.HttpGet());
+
             RefreshTimeTick = new TimeTick(Common.UpdateDay);
             Handle RefreshTimeHandle = new Handle(RefreshTime);
             RefreshTimeTick.Start(RefreshTimeHandle);
