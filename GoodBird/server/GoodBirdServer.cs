@@ -45,7 +45,8 @@ namespace GoodBird
         /// <summary>
         /// 停止服务器,停止计时器
         /// </summary>
-        public void Stop(){
+        public void Stop()
+        {
             RefreshTimeTick.Stop();
             ConfirmTimeTick.Stop();
         }
@@ -85,10 +86,14 @@ namespace GoodBird
 
             Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
 
+            string base64 = ImageHelper.ImageToBase64(filePath);
+
             Console.WriteLine(3);
 
-            string base64 = ImageHelper.ImageToBase64(filePath);
             string grayBase64 = GetGrayBase64Pic(base64);
+
+            Console.WriteLine(4);
+
 
             System.Collections.Generic.Dictionary<string, string> queries = new System.Collections.Generic.Dictionary<string, string>();
 
