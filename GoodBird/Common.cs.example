@@ -39,7 +39,7 @@ namespace GoodBird
         /// 设置每次检查时刻匹配的间隔(ms)
         /// 不需要修改
         /// </summary>
-        public static int ConfirmTime = 6000;
+        public static int ConfirmTime = 60000;
         /// <summary>
         /// 设置每天刷新发送时间的间隔(ms,一天)
         /// </summary>
