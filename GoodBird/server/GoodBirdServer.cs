@@ -86,16 +86,7 @@ namespace GoodBird
 
             Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
 
-            string base64 = "";
-
-            try{
-                base64 = ImageHelper.ImageToBase64(filePath);
-            }
-            catch(Exception e){
-                Console.WriteLine(e.Message);
-            }
-
-
+            string base64 = ImageHelper.ImageToBase64(filePath);
             string grayBase64 = GetGrayBase64Pic(base64);
 
             System.Collections.Generic.Dictionary<string, string> queries = new System.Collections.Generic.Dictionary<string, string>();
@@ -105,8 +96,6 @@ namespace GoodBird
                 printContent += $"T:{RegexHelper.TextToBase64(message)}|";
             printContent += $"P:{grayBase64}";
 
-            Console.WriteLine(1);
-
             foreach (var item in Common.Birds)
             {
                 queries.Clear();
@@ -115,8 +104,6 @@ namespace GoodBird
                 queries.Add("memobirdID", item.MemobirdID);
                 queries.Add("userID", LinkBird(item));
                 queries.Add("printcontent", printContent);
-
-                Console.WriteLine(2);
 
                 PrintPaperHttp.SetQueries(queries);
                 string result = PrintPaperHttp.HttpPost();
@@ -143,8 +130,6 @@ namespace GoodBird
             SetUserBindHttp.SetQueries(queries);
             string result = SetUserBindHttp.HttpPost();
             result = RegexHelper.GetNumElem(result, "showapi_userid");
-
-            Console.WriteLine("link: " + result);
             return result;
         }
 
@@ -163,7 +148,6 @@ namespace GoodBird
             GetSignalBase64PicHttp.SetQueries(queries);
             string base64 = GetSignalBase64PicHttp.HttpPost();
             base64 = RegexHelper.GetElem(base64, "result");
-            Console.WriteLine("pic: " + base64);
             return base64;
         }
     }
