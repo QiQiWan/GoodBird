@@ -85,6 +85,8 @@ namespace GoodBird
 
             Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
 
+            Console.WriteLine(3);
+
             string base64 = ImageHelper.ImageToBase64(filePath);
             string grayBase64 = GetGrayBase64Pic(base64);
 
@@ -95,6 +97,8 @@ namespace GoodBird
                 printContent += $"T:{RegexHelper.TextToBase64(message)}|";
             printContent += $"P:{grayBase64}";
 
+            Console.WriteLine(1);
+
             foreach (var item in Common.Birds)
             {
                 queries.Clear();
@@ -103,6 +107,8 @@ namespace GoodBird
                 queries.Add("memobirdID", item.MemobirdID);
                 queries.Add("userID", LinkBird(item));
                 queries.Add("printcontent", printContent);
+
+                Console.WriteLine(2);
 
                 PrintPaperHttp.SetQueries(queries);
                 string result = PrintPaperHttp.HttpPost();
