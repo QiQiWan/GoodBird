@@ -34,11 +34,6 @@ namespace GoodBird
         /// </summary>
         public void Start()
         {
-
-            HttpHelper helper = new HttpHelper("https://eatrice.top");
-
-            Console.WriteLine(helper.HttpGet());
-
             RefreshTimeTick = new TimeTick(Common.UpdateDay);
             Handle RefreshTimeHandle = new Handle(RefreshTime);
             RefreshTimeTick.Start(RefreshTimeHandle);
@@ -134,6 +129,8 @@ namespace GoodBird
             SetUserBindHttp.SetQueries(queries);
             string result = SetUserBindHttp.HttpPost();
             result = RegexHelper.GetNumElem(result, "showapi_userid");
+
+            Console.WriteLine("link: " + result);
             return result;
         }
 
@@ -152,6 +149,7 @@ namespace GoodBird
             GetSignalBase64PicHttp.SetQueries(queries);
             string base64 = GetSignalBase64PicHttp.HttpPost();
             base64 = RegexHelper.GetElem(base64, "result");
+            Console.WriteLine("pic: " + base64);
             return base64;
         }
     }
