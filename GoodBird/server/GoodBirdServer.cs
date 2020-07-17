@@ -86,8 +86,10 @@ namespace GoodBird
 
             Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
 
+            string base64 = "";
+
             try{
-            string base64 = ImageHelper.ImageToBase64(filePath);
+                base64 = ImageHelper.ImageToBase64(filePath);
             }
             catch(Exception e){
                 Console.WriteLine(e.Message);
