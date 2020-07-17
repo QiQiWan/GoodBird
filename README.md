@@ -16,6 +16,23 @@ GoodBird 是一个咕咕机自动发送小纸条的服务器程序,可以实现�
 
 安装`.NET Core 2.2`运行时，下载地址：[https://dotnet.microsoft.com/download/dotnet-core/2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
+运行前,须先添加nuget包,在有`GoodBird.csproj`文件的目录下执行:
+
+``` bash
+$ dotnet add package System.Drawing.Common
+$ dotnet restore
+```
+
+若在linux服务器上运行,为支持`gdiplus.dll`,需要安装`libgdiplus`和`libc6-dev`依赖.
+
+如`Ubuntu 16.04 或 18.04`
+
+``` bash
+$ apt-get update
+$ apt-get install -y --no-install-recommends libgdiplus libc6-dev
+$ apt-get update
+```
+
 **运行**：在有`GoodBird.csproj`文件的目录下执行`dotnet run`
 
 ## 博客
