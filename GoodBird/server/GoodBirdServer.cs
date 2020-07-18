@@ -82,12 +82,31 @@ namespace GoodBird
         {
             string imgPath = period.ImgDic, message = period.Message;
             string[] fileList = FileHelper.GetFileList(imgPath);
-            string filePath = imgPath + fileList[new Random().Next(fileList.Length)];
+            string filePath;
+            do{
+                filePath = imgPath + fileList[new Random().Next(fileList.Length)];
+            }while(filePath.Contains("head"));
 
             Loger.Log($"正在准备发送图片{imgPath + filePath}, 在时间{period.ToTimeString()}");
 
-            string base64 = ImageHelper.ImageToBase64(filePath);
-            string grayBase64 = GetGrayBase64Pic(base64);
+            string headImg = null;
+
+            foreach (var item in fileList)
+            {
+                if (item.Contains("head"))
+                {
+                    headImg = item;
+                    break;
+                }
+            }
+
+            headImg = imgPath + headImg;
+            string grayBase64;
+
+            if (headImg != null)
+                grayBase64 = GetGrayBase64Pic(headImg, filePath);
+            else
+                grayBase64 = GetGrayBase64Pic(filePath);
 
             System.Collections.Generic.Dictionary<string, string> queries = new System.Collections.Generic.Dictionary<string, string>();
 
@@ -138,15 +157,40 @@ namespace GoodBird
         /// </summary>
         /// <param name="originBase64"></param>
         /// <returns></returns>
-        private string GetGrayBase64Pic(string originBase64)
+        private string GetGrayBase64Pic(string filePath)
+        {
+            string base64 = ImageHelper.ImageToBase64(filePath);
+            base64 = GetPicRequest(base64);
+            return base64;
+        }
+        private string GetGrayBase64Pic(string headFile, string footFile)
+        {
+
+            string head = GetGrayBase64Pic(headFile);
+            string foot = GetGrayBase64Pic(footFile);
+
+            string result;
+            try
+            {
+                result = ImageHelper.StitchedImage(head, foot);
+                result = GetPicRequest(result);
+            }
+            catch (Exception e)
+            {
+                Loger.LogWrong(e.Message);
+                return foot;
+            }
+            return result;
+        }
+        private string GetPicRequest(string base64)
         {
             System.Collections.Generic.Dictionary<string, string> queries = new System.Collections.Generic.Dictionary<string, string>();
             queries.Clear();
 
             queries.Add("ak", Common.ACCESS_KEY);
-            queries.Add("imgBase64String", originBase64);
+            queries.Add("imgBase64String", base64);
             GetSignalBase64PicHttp.SetQueries(queries);
-            string base64 = GetSignalBase64PicHttp.HttpPost();
+            base64 = GetSignalBase64PicHttp.HttpPost();
             base64 = RegexHelper.GetElem(base64, "result");
             return base64;
         }

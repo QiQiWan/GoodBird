@@ -146,6 +146,49 @@ namespace GoodBird
         //     Bitmap bitmap = CompressionImageProcess.CompressionImage(imgPath, 50);
         //     return ImageToBase64(bitmap);
         // }
+
+        /// <summary>
+        /// Stitchedimages from base64, and output base64
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="foot"></param>
+        public static string StitchedImage(string head, string foot)
+        {
+            Bitmap headImg = Base64StringToImage(head);
+            Bitmap footImg = Base64StringToImage(foot);
+
+            if (headImg.Width != footImg.Width)
+                throw new Exception("待拼接的两幅图片的宽度不一致!");
+
+            Bitmap totalImg = StitchedImage(headImg, footImg);
+
+            
+            return ImageToBase64(totalImg);
+
+        }
+        /// <summary>
+        /// Stitched image from two Bitmap, and output bitmap
+        /// </summary>
+        /// <param name="headImg"></param>
+        /// <param name="footImg"></param>
+        /// <returns></returns>
+        public static Bitmap StitchedImage(Bitmap headImg, Bitmap footImg)
+        {
+            if (headImg.Width != footImg.Width)
+                throw new Exception("待拼接的两幅图片的宽度不一致!");
+            int width = headImg.Width;
+            int height = headImg.Height + footImg.Height;
+
+            Bitmap resultImg = new Bitmap(width, height);
+
+            byte[] headImgBuff = GetImgArr(headImg);
+            byte[] footImgBuff = GetImgArr(footImg);
+
+            byte[] totalImgBuff = RegexHelper.MergeArr<byte>(headImgBuff, footImgBuff);
+
+            Bitmap totalImg = WriteImg(totalImgBuff, width, height);
+            return totalImg;
+        }
     }
 
     /// <summary>

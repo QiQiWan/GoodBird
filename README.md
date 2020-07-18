@@ -23,7 +23,7 @@ $ dotnet add package System.Drawing.Common
 $ dotnet restore
 ```
 
-若在linux服务器上运行,为支持`gdiplus.dll`,需要安装`libgdiplus`和`libc6-dev`依赖.
+若在linux服务器上运行,为支持`gdiplus.dll`,还需要安装`libgdiplus`和`libc6-dev`依赖.
 
 如`Ubuntu 16.04 或 18.04`
 

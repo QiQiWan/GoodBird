@@ -45,5 +45,13 @@ namespace GoodBird
             string strBaser64 = System.Convert.ToBase64String(buff);
             return strBaser64;
         }
+
+        public static T[] MergeArr<T>(T[] headArr, T[] footArr)
+        {
+            T[] buffer = new T[headArr.Length + footArr.Length];
+            headArr.CopyTo(buffer, 0);
+            footArr.CopyTo(buffer, headArr.Length);
+            return buffer;
+        }
     }
 }

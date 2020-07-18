@@ -11,6 +11,9 @@ namespace GoodBird
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            server.SendImg(Common.SendPeriods[2]);
+
+
             // 启动服务器
             server.Start();
             Loger.Log("服务器已启动...");
